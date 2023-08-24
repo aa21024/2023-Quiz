@@ -1,0 +1,35 @@
+from random import randint
+
+
+def yes_no(question):
+  valid=False
+  while not valid:
+    response=input(question).lower().strip()
+    if response == "yes" or response == "y":
+      response = "yes"
+      return response
+    elif response == "no" or response == "n":
+      response = "no"
+      return response
+    else:
+      print("please enter yes or no")
+show_instructions = ""
+while show_instructions != "xxx":
+  #ask user questions
+  show_instructions = yes_no("have you played before? ")
+
+  if show_instructions == "yes":
+    print("program continues")
+  elif show_instructions == "no":
+    print("***Welcome to the 2023 Maths Quiz***") 
+    print("***Just add the questions to get the answers correct.***")
+
+  for _item in range(0,9):
+    num1 = randint(2,9)
+    num2 = randint(2,9)
+    answer = num1 * num2
+    response = int(input(f'What is {num1} * {num2}? '))
+    if response == answer:
+      print("Correct!")
+    else: 
+      print("Incorrect")
